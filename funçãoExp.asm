@@ -2,18 +2,19 @@
 	li $v0, 5
 	syscall
 	
-	move $t0, $v0 #a
+	move $t0, $v0 #a base
 	
 	li $v0, 5
 	syscall
 	
-	move $t1, $v0 #n
+	move $t1, $v0 #n expo
 	
 	move $t2, $zero#contador
 	
-	addi $t4, $t4, 2
+	move $t4, $t0
 	
 	subi $t5, $t1, 1
+	
 	while:
 		beq $t2, $t5, saida
 		mul $s0, $t0, $t4
