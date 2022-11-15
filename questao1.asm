@@ -27,12 +27,12 @@
 		addi $t3,$t3,1
 		j while
 	saida:
-		li $v0, 4#printar string
+		li $v0, 4   #printar string
 		la $a0, msg1
 		syscall #printar msg1 quoci
 		
-		li $v0, 1#printar int
-		move $a0,$t3#quociente
+		li $v0, 1   #printar int
+		move $a0,$t3    #quociente
 		syscall#print
 		
 		li $v0, 4
