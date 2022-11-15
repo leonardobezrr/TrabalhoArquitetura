@@ -31,7 +31,7 @@
 	subi $t5, $t1, 1	# (Expoente - 1)
 	
 	while:
-		beq $t2, $t5, saida	#Se contador for == (expo - 1) v· para saida
+		beq $t2, $t5, saida	#Se contador for == (expo - 1) v√° para saida
 		mul $s0, $t0, $t4 	
 		move $t4, $s0		
 		addi $t2, $t2, 1
@@ -59,8 +59,4 @@
 		move $a0, $t6	#Exibindo inteiro (Resultado da exponencial)
 		syscall
 	end:
-		
-		
-	
-		 
 		
