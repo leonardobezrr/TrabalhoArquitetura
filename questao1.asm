@@ -46,3 +46,4 @@
 		li $v0, 1#printar int
 		move $a0,$t2#resto
 		syscall#print
+
