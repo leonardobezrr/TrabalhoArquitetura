@@ -13,8 +13,9 @@
 	
 	addi $t4, $t4, 2
 	
+	subi $t5, $t1, 1
 	while:
-		beq $t2, $t1, saida
+		beq $t2, $t5, saida
 		mul $s0, $t0, $t4
 		move $t4, $s0
 		addi $t2, $t2, 1
