@@ -1,13 +1,18 @@
 .data 
 #Area de dados da memoria principal
+	print1: .asciiz "Informe o número inteiro: "
 	msg1: .asciiz "Quociente = "
-	msg2: .asciiz "Resto = " #mensagens a serem exibidas para o
-	msg_par: .asciiz "Par"
-	msg_impar: .asciiz "Impar"
+	msg2: .asciiz "Resto= " #mensagens a serem exibidas para o
+	msg_par: .asciiz "\nO número é par"
+	msg_impar: .asciiz "\nO número é impar"
 	# usuario
 	espaco: .byte ' '
 .text
-#Area de intruï¿½ï¿½o pra o programa
+#Area de intrução pra o programa
+	
+	li $v0, 4   #printar string
+	la $a0, print1
+	syscall #printar "Informe o número inteiro: \n"
 
 	li $v0, 5 #leitura de int
 	syscall #pedindo o dividendo = numero
@@ -55,4 +60,6 @@
 		syscall
 		
 		fim:
+		
+		
 		

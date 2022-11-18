@@ -21,6 +21,15 @@ jal ordenar
 jal Print_vetor
 jal Exit
 
+tam_vetor:
+la $a0, perg_vetor
+li $v0,4
+syscall
+li $v0,5
+syscall
+move $s7,$v0
+jr $ra
+
 _break_:
 la  $a0,_break
 li $v0,4
@@ -43,15 +52,6 @@ addi $s1,$s1,1
 j loop
 
 else:
-jr $ra
-
-tam_vetor:
-la $a0, perg_vetor
-li $v0,4
-syscall
-li $v0,5
-syscall
-move $s7,$v0
 jr $ra
 
 read_vetor:

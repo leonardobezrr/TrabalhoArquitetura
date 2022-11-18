@@ -1,10 +1,23 @@
+.data
+	print1: .asciiz "Informe a base: "
+	print2: .asciiz "Informe o expoente: "
+	print3: .asciiz "Resultado da base elevada ao expoente: "
 .text
 main:
 	#pedir dois int
+	
+	li $v0, 4   #printar string
+	la $a0, print1
+	syscall #printar "Informe a base: "
+	
 	li $v0, 5
 	syscall
 	
 	move $t0, $v0#base
+	
+	li $v0, 4   #printar string
+	la $a0, print2
+	syscall #printar "Informe o expoente: "
 	
 	li $v0,5
 	syscall
@@ -14,6 +27,7 @@ main:
 	j power#entrando na função
 	
 mainEnd:
+	
 	li $v0, 1#printar int
 	move $a0, $t3 #resultado
 	syscall
@@ -34,6 +48,10 @@ power:
 
 resuUm:
 
+	li $v0, 4   #printar string
+	la $a0, print3
+	syscall #printar "Resultado da base elevada ao expoente: "
+
 	addi $t3, $t3, 1#resultado=1
 	li $v0, 1
 	move $a0, $t3
@@ -41,6 +59,11 @@ resuUm:
 	j encerraPro
 
 saida:	
+
+	li $v0, 4   #printar string
+	la $a0, print3
+	syscall #printar "Resultado da base elevada ao expoente: "
+
 	li $v0, 1
 	move $a0, $t4
 	syscall
