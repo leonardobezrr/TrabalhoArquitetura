@@ -1,7 +1,8 @@
 .data
-promptv: .asciiz "Digite o Tamanho do vetor: "
-elemento: .asciiz "Digite o elemento "
-elementoCont: .asciiz " do vetor: "
+perg_vetor: .asciiz "Informe o tamanho do vetor: "
+elemento: .asciiz "Informe o "
+elementoCont: .asciiz "º vetor: "
+
 blank: " " 
 _break:"\n"
 .text
@@ -13,9 +14,10 @@ jal read_vetor
 jal _break_
 jal Print_vetor
 jal _break_
-move $a0, $t1 #t1 armazena o valor de p
-move $a2,$s7 #s7 armazena o tamanho do vetor
-jal ord
+move $a0, $t1 #t1 vai armazenar o valor de p
+move $a2,$s7 #s7 vai armazenar o tamanho do vetor
+
+jal ordenar
 jal Print_vetor
 jal Exit
 
@@ -44,7 +46,7 @@ else:
 jr $ra
 
 tam_vetor:
-la $a0, promptv
+la $a0, perg_vetor
 li $v0,4
 syscall
 li $v0,5
@@ -87,7 +89,7 @@ sw $v0, ($a1)
 addi $s1,$s1,1
 j loop2
 
-ord:
+ordenar:
 # move $a0, $t1 #t1 armazena o valor de p
 # move $a1,$s0  # armazena o endereço inicial do vetor
 # move $a2,$s7 #s7 armazena o tamanho do vetor
@@ -98,7 +100,7 @@ bge $a0,$a2,return
 add $a3,$a0,$zero # a3 irá armazenar nosso índice i.
 jal loop_3
 addi $a0,$a0,1
-jal ord
+jal ordenar
 
 return:
 lw $ra, 0($sp) 
